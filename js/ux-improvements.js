@@ -109,13 +109,12 @@ document.addEventListener('DOMContentLoaded', () => {
             submitButton.innerHTML = `<span class="spinner"></span> Enviando...`;
 
             const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries());
 
             try {
                 const response = await fetch(form.action, {
                     method: form.method,
-                    body: JSON.stringify(data),
-                    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
+                    body: formData, // <-- CORREGIDO
+                    headers: { 'Accept': 'application/json' } // <-- CORREGIDO
                 });
 
                 if (response.ok) {
@@ -126,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     let seconds = 5;
 
                     const interval = setInterval(() => {
-                        seconds--; 
+                        seconds--;
                         if (seconds <= 0) {
                             clearInterval(interval);
                             window.location.href = 'https://discord.gg/Vnphm9s3';
