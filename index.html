@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscripción – Torneo Clash Royale Online</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Montserrat:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="form-wrapper">
+
+        <form action="https://formspree.io/f/xyzbykje" method="POST" id="epicForm">
+
+            <div class="form-step active" data-step="1">
+
+                <div class="welcome-icon">👑👑👑</div>
+
+                <h1 class="titulo-principal" style="margin-bottom: 5px;">Torneo Clash Royale</h1>
+
+                <h2 class="subtitulo-principal">¡La Arena te espera!</h2>
+
+                <p class="descripcion-principal" style="margin-bottom: 30px;">
+                    ¡Saludos, Duelista! El Rey te convoca al torneo de <strong>Fi Royale</strong>.
+                    Completa tu registro para forjar tu leyenda en la arena.
+                </p>
+
+                <img src="./img/Hero.png" alt="Banner del Torneo Clash Royale" class="form-banner">
+
+                <div class="requisitos-welcome">
+                    <strong>Requisitos de inscripción:</strong>
+                    <ul>
+                        <li><span class="icon-check">⚔️</span> Tener una cuenta activa de Clash Royale.</li>
+
+                        <li><span class="icon-check">⚔️</span> Cubrir el pago deㅤ<strong> $30.00 MXN</strong>.</li>
+
+                        <li><span class="icon-check">⚔️</span> Conservar tu comprobante de pago.</li>
+
+                        <li><span class="icon-check">⚔️</span> Estudiar lasㅤ<a href="./pages/reglas.html">Reglas
+                                del Torneo</a>.</li>
+
+                        <li><span class="icon-check">⚔️</span> Unirte alㅤ<a href="https://discord.gg/Vnphm9s3"
+                                target="_blank">Campamento en Discord</a>.</li>
+
+                        <li style="margin-top: 10px; opacity: 0.8;"><span class="icon-check">🏆</span> ¡Preparar tu mazo
+                            más letal!</li>
+                    </ul>
+                </div>
+
+                <button type="button" class="next-step-btn boton-epico" style="margin-top: 20px;">
+                    ¡A LA ARENA!
+                </button>
+            </div>
+
+            <div class="form-step" data-step="2">
+                <h2 class="titulo-seccion">1. Datos del Jugador</h2>
+
+                <label for="nombre_real">Nombre:</label>
+                <input type="text" id="nombre_real" name="Nombre_Real" required>
+                <span class="error-message"></span>
+
+                <label for="nickname">Nickname (Tu nombre en Clash Royale):</label>
+                <input type="text" id="nickname" name="Nickname_CR" required>
+                <span class="error-message"></span>
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="Email" required>
+
+                <span class="error-message"></span> <label for="discord">Usuario de Discord (Ej:
+                    MiUsuario#1234):</label>
+                <input type="text" id="discord" name="Discord" placeholder="Necesario para la comunicación" required>
+                <span class="error-message"></span> <label for="playertag">Player Tag de Clash Royale (Ej:
+                    #2L8JQ9P):</label>
+                <input type="text" id="playertag" name="PlayerTag" placeholder="Lo encuentras en tu perfil" required>
+                <span class="error-message"></span>
+                <div class="step-navigation">
+                    <button type="button" class="prev-step-btn boton-normal">Volver</button>
+                    <button type="button" class="next-step-btn boton-epico">Siguiente Paso</button>
+                </div>
+            </div>
+
+            <div class="form-step" data-step="3">
+                <h2 class="titulo-seccion">2. Información de Pago</h2>
+
+                <div class="costo-fijo">
+                    <label>Monto de Inscripción:</label>
+                    <p class="precio">$30.00 MXN</p>
+                </div>
+
+                <label>¿Ya realizaste tu pago de inscripción?</label>
+                <div class="radio-group">
+                    <input type="radio" id="pago_si" name="Pago_Realizado" value="Sí, ya pagué" required>
+                    <label for="pago_si">Sí, ya pagué</label>
+                </div>
+                <div class="radio-group">
+                    <input type="radio" id="pago_no" name="Pago_Realizado" value="Aún no, solo me estoy registrando"
+                        required>
+                    <label for="pago_no">Aún no, solo me estoy registrando</label>
+                </div>
+                <span class="error-message"></span> <label for="metodo">¿A través de qué medio hiciste o harás el
+                    pago?</label>
+                <select id="metodo" name="Metodo_Pago" required>
+                    <option value="">Selecciona un medio...</option>
+                    <option value="Transferencia">Transferencia bancaria</option>
+                    <option value="MercadoPago">MercadoPago</option>
+                    <option value="Oxxo">Depósito en Oxxo</option>
+                    <option value="Otro">Otro</option>
+                </select>
+                <span class="error-message"></span>
+
+                <div class="instruccion-facebook">
+                    <strong>¡Atención!</strong>
+                    <p><b>Solicita los datos de pago</b> (CLABE/cuenta) a través de nuestro Facebook Messenger. <br> Por
+                        ese mismo medio, envía tu <b>comprobante</b> (captura o recibo) para confirmar tu lugar.</p>
+                    <a href="https://www.facebook.com/profile.php?id=61582980444217" target="_blank"
+                        class="boton-facebook">
+                        Solicitar Datos / Enviar Comprobante
+                    </a>
+                    <p>¡No olvides incluir tu Nickname y Player Tag en el chat para una validación rápida!</p>
+                </div>
+                <div class="step-navigation">
+                    <button type="button" class="prev-step-btn boton-normal">Volver</button>
+                    <button type="button" class="next-step-btn boton-epico">Siguiente Paso</button>
+                </div>
+            </div>
+
+            <div class="form-step" data-step="4">
+                <h2 class="titulo-seccion">3. Confirmación y Reglas</h2>
+                <p class="descripcion-seccion">Estamos casi listos. Por favor, confirma lo siguiente:</p>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="reglas" name="Acepta_Reglas" value="Aceptadas" required>
+                    <label for="reglas">Declaro haber leído y aceptado las <b>reglas del torneo</b>.</label>
+                </div>
+                <span class="error-message"></span>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="publicacion" name="Autoriza_Publicacion" value="Autorizada">
+                    <label for="publicacion">Autorizo el uso de mi nickname y resultados para publicación en redes
+                        sociales del torneo.</label>
+                </div>
+
+                <div class="step-navigation">
+                    <button type="button" class="prev-step-btn boton-normal">Volver</button>
+                    <button type="submit" class="boton-epico">Finalizar Inscripción</button>
+                </div>
+            </div>
+
+            <div class="form-step thank-you-screen" data-step="5">
+
+                <h1 class="titulo-principal">🎉 ¡Inscripción Registrada! 🎉</h1>
+
+                <p class="descripcion-seccion" style="font-size: 1.1rem; margin-bottom: 25px;">
+                    ¡Excelente! Hemos recibido tus datos. Tu lugar en la arena está reservado.
+                </p>
+
+                <div class="next-steps-container">
+                    <h3 class="next-steps-title">Próximos Pasos (Importante):</h3>
+
+                    <div class="step-box">
+                        <span class="step-number">1</span>
+                        <div class="step-content">
+                            <strong>Confirma tu Pago</strong>
+                            <p>Solicita los datos y envía tu comprobante por chat.</p>
+                        </div>
+                        <a href="https://www.facebook.com/profile.php?id=61582980444217" target="_blank"
+                            class="boton-facebook step-button-mobile">
+                            <i class="fab fa-facebook-messenger"></i> Ir a Facebook
+                        </a>
+                    </div>
+
+                    <div class="step-box">
+                        <span class="step-number">2</span>
+                        <div class="step-content">
+                            <strong>Únete al Discord</strong>
+                            <p>Coordina partidas y recibe anuncios oficiales.</p>
+                        </div>
+                        <a href="https://discord.gg/Vnphm9s3" target="_blank"
+                            class="step-button-discord step-button-mobile">
+                            <i class="fab fa-discord"></i> Ir a Discord
+                        </a>
+                    </div>
+                </div>
+
+                <div class="final-info-box">
+                    <p class="redirect-text">
+                        Serás redirigido al Discord en <strong id="countdown">5</strong> segundos...
+                    </p>
+                    <div class="social-links-final">
+                        Síguenos también en <a href="https://www.instagram.com/fi_royale/" target="_blank" class="enlace-social"> Instagram de FI Royale
+                        </a>
+                    </div>
+                    <p class="final-greeting">¡Mucha suerte!</p>
+                </div>
+
+            </div>
+    <script src="./js/ux-improvements.js"></script>
+</body>
+
+</html>

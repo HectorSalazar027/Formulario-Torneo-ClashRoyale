@@ -1,0 +1,1107 @@
+/* --- Fuentes de Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Montserrat:wght@400;700&display=swap');
+
+
+:root {
+    --color-fondo-oscuro: #1a263a; 
+    --color-borde-primario: #f7c55c; 
+    --color-texto-primario: #FFFFFF;
+    --color-resaltado: #e0e0e0;
+    --color-borde-secundario: #5c6c8c; 
+    --color-elixir: #ff4081; 
+    
+    --color-facebook: #0078FF; 
+    --color-facebook-hover: #0062CC; 
+}
+
+/* --- Estilos Generales --- */
+body {
+    background-color: var(--color-fondo-oscuro);
+    background-image: url(../img/fondo.png) ;/* Fondo de arena de Clash Royale */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-texto-primario);
+    line-height: 1.6;
+    padding: 20px;
+    display: flex; /* Para centrar el formulario */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.form-wrapper {
+    max-width: 800px;
+    width: 100%;
+    margin: 40px auto;
+    background: rgba(10, 20, 35, 0.95); /* Fondo oscuro semi-transparente */
+    border: 3px solid var(--color-borde-primario);
+    border-radius: 15px;
+    padding: 30px 40px;
+    box-shadow: 0 0 40px rgba(247, 197, 92, 0.6); /* Sombra dorada intensa */
+    position: relative;
+    overflow: hidden; /* Para que las transiciones de step funcionen */
+}
+
+/* --- Barra de Progreso (Elixir) --- */
+.progress-bar-container {
+    height: 15px;
+    background-color: var(--color-borde-secundario);
+    border-radius: 10px;
+    margin-bottom: 25px;
+    overflow: hidden;
+    border: 1px solid var(--color-borde-primario);
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #ff8a00, var(--color-elixir)); /* Degradado de elixir */
+    border-radius: 10px;
+    transition: width 0.4s ease-in-out;
+}
+
+/* --- Estilos de las "Páginas" (Form Steps) --- */
+.form-step {
+    opacity: 0;
+    transform: translateX(100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 40px; /* Misma padding que el wrapper */
+    box-sizing: border-box;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    visibility: hidden; /* Oculta completamente cuando no está activo */
+}
+
+.form-step.active {
+    opacity: 1;
+    transform: translateX(0);
+    position: relative; /* Vuelve a su flujo normal */
+    visibility: visible;
+}
+
+/* --- Títulos y Descripciones --- */
+.titulo-principal {
+    font-family: 'Bangers', cursive;
+    color: var(--color-borde-primario);
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 5px #000;
+}
+.titulo-seccion {
+    font-family: 'Bangers', cursive;
+    color: var(--color-texto-primario);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 3px #000;
+}
+.descripcion-principal {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--color-resaltado);
+}
+.descripcion-seccion {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: var(--color-resaltado);
+}
+
+/* --- Requisitos --- */
+.requisitos {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--color-borde-secundario);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+.requisitos strong {
+    font-family: 'Bangers', cursive;
+    color: var(--color-borde-primario);
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 10px;
+}
+.requisitos ul {
+    margin: 10px 0 0 20px;
+    padding: 0;
+    list-style-type: '👑 '; /* CAMBIO: Emoji de corona */
+    color: var(--color-texto-primario);
+}
+.requisitos ul li a {
+    color: var(--color-elixir);
+    text-decoration: none;
+    font-weight: 700;
+}
+.requisitos ul li a:hover {
+    text-decoration: underline;
+}
+
+/* --- Campos de Formulario --- */
+label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--color-borde-primario);
+}
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 12px;
+    background: var(--color-fondo-oscuro);
+    border: 2px solid var(--color-borde-secundario);
+    border-radius: 6px;
+    color: var(--color-texto-primario);
+    font-size: 1rem;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--color-borde-primario);
+    box-shadow: 0 0 10px rgba(247, 197, 92, 0.3);
+}
+
+/* --- Radio y Checkbox --- */
+.radio-group, .checkbox-group {
+    display: flex;
+    align-items: center;
+    background: rgba(var(--color-fondo-oscuro), 0.5); /* Semi-transparente */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid var(--color-borde-secundario);
+}
+.checkbox-group label, .radio-group label {
+    color: var(--color-texto-primario);
+    font-weight: 400;
+    margin: 0;
+    margin-left: 10px;
+    cursor: pointer;
+}
+input[type="checkbox"], input[type="radio"] {
+    transform: scale(1.2);
+    cursor: pointer;
+    /* Estilo de checkbox/radio personalizado para epicidad */
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-elixir);
+    border-radius: 4px;
+    position: relative;
+    display: grid;
+    place-content: center;
+}
+input[type="radio"] {
+    border-radius: 50%; /* Para que sea circular */
+}
+input[type="checkbox"]::before, input[type="radio"]::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    transform: scale(0);
+    transition: transform 0.2s ease-in-out;
+    background-color: var(--color-elixir);
+    border-radius: 2px; /* Cuadrado para checkbox */
+}
+input[type="radio"]::before {
+    border-radius: 50%; /* Círculo para radio */
+}
+input[type="checkbox"]:checked::before, input[type="radio"]:checked::before {
+    transform: scale(1);
+}
+
+/* ==== SECCIÓN MODIFICADA (antes .instruccion-whatsapp) ==== */
+.instruccion-facebook {
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid var(--color-facebook);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 25px;
+    box-shadow: 0 0 15px rgba(0, 120, 255, 0.5);
+}
+.instruccion-facebook p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+    color: var(--color-resaltado);
+}
+.boton-facebook {
+    display: inline-block;
+    background-color: var(--color-facebook);
+    color: var(--color-texto-primario);
+    font-weight: 700;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+    margin-top: 10px;
+}
+.boton-facebook:hover {
+    background-color: var(--color-facebook-hover);
+    transform: scale(1.03);
+}
+/* ==== FIN DE SECCIÓN MODIFICADA ==== */
+
+
+/* --- Navegación de Pasos --- */
+.step-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 15px; /* Espacio entre botones */
+}
+
+.boton-epico, .boton-normal {
+    display: block;
+    flex-grow: 1; /* Para que ocupen el espacio disponible */
+    padding: 15px;
+    font-family: 'Bangers', cursive;
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+    text-decoration: none; /* Para enlaces */
+}
+
+.boton-epico {
+    color: var(--color-fondo-oscuro);
+    background: linear-gradient(180deg, #ffe082 0%, var(--color-borde-primario) 100%);
+    border: 3px solid #fff;
+    text-shadow: 1px 1px 2px #fff;
+}
+.boton-epico:hover {
+    background: linear-gradient(180deg, #fadb8a 0%, #f7c55c 100%); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.02); 
+}
+
+.boton-normal {
+    color: var(--color-texto-primario);
+    background: linear-gradient(180deg, #5c6c8c 0%, #3a475f 100%);
+    border: 2px solid #a0b0d0;
+    text-shadow: 1px 1px 2px #000;
+}
+.boton-normal:hover {
+    background: linear-gradient(180deg, #7a8aa0 0%, #5a677f 100%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transform: scale(1.02);
+}
+
+.boton-epico-small { /* Botón específico para la pantalla final */
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    margin-top: 20px;
+    display: inline-block;
+    width: auto;
+}
+
+.enlace-social {
+    color: var(--color-elixir);
+    text-decoration: none;
+    font-weight: 700;
+}
+.enlace-social:hover {
+    text-decoration: underline;
+}
+
+/* --- Media Queries para Responsive Design --- */
+@media (max-width: 768px) {
+    .form-wrapper {
+        margin: 20px auto;
+        padding: 20px;
+    }
+    .titulo-principal {
+        font-size: 2.5rem;
+    }
+    .titulo-seccion {
+        font-size: 2rem;
+    }
+    .boton-epico, .boton-normal {
+        font-size: 1.8rem;
+        padding: 12px;
+    }
+    .requisitos ul {
+        list-style-type: disc; /* Vuelve a lo normal en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .form-wrapper {
+        border-radius: 0; /* Sin bordes redondeados en móviles */
+        margin: 0;
+        padding: 15px;
+        min-height: 100vh; /* Que ocupe toda la pantalla */
+    }
+    .form-step {
+        padding: 15px;
+    }
+    .titulo-principal {
+        font-size: 2rem;
+    }
+    .titulo-seccion {
+        font-size: 1.8rem;
+    }
+    .boton-epico, .boton-normal {
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+    .step-navigation {
+        flex-direction: column; /* Botones apilados */
+    }
+    /* Clase modificada para FB */
+    .instruccion-facebook a { 
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
+}
+
+
+/* --- Estilos para el bloque de Costo Fijo --- */
+.costo-fijo {
+    background: rgba(0, 0, 0, 0.3); /* Fondo oscuro sutil */
+    border: 1px solid var(--color-borde-secundario);
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.costo-fijo label {
+    color: var(--color-resaltado); /* Un color más suave, no el dorado */
+    font-weight: 400;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.costo-fijo .precio {
+    font-family: 'Bangers', cursive; /* Fuente temática */
+    color: var(--color-borde-primario); /* Dorado */
+    font-size: 3rem; /* Bien grande */
+    margin: 5px 0 0 0;
+    line-height: 1.1;
+    text-shadow: 2px 2px 4px #000;
+}
+
+
+
+/*? --- Estilos para la Página de Reglas --- */
+
+.rules-content {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--color-borde-secundario);
+    border-radius: 8px;
+    padding: 20px 30px;
+    margin-bottom: 30px;
+    text-align: left; /* Las reglas deben estar alineadas a la izquierda */
+}
+
+.rules-content h2 {
+    font-family: 'Bangers', cursive;
+    color: var(--color-borde-primario); /* Dorado */
+    font-size: 2rem;
+    letter-spacing: 1px;
+    margin-top: 25px; /* Espacio antes de cada sección */
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--color-borde-secundario);
+    padding-bottom: 5px;
+}
+
+.rules-content p,
+.rules-content li {
+    margin-bottom: 15px;
+    line-height: 1.7;
+    color: var(--color-resaltado); /* Texto un poco más suave */
+    font-size: 1rem;
+}
+
+.rules-content ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    list-style-type: '⚔️ '; /* Emoji de espadas */
+}
+
+.rules-content ul ul {
+    margin-top: 10px;
+    list-style-type: '🔹 '; /* Emoji de diamante */
+}
+
+
+.rules-content strong {
+    color: var(--color-borde-primario);
+    font-weight: 700;
+}
+
+/* Estilo para el botón de "Volver" */
+.boton-volver {
+    display: block; /* Hace que el <a> ocupe todo el ancho */
+    width: 100%;
+    box-sizing: border-box; /* Para que el padding no rompa el ancho */
+}
+
+/* --- Estilos Adicionales para Mejor Diseño UI/UX en Reglas --- */
+
+/* Importar Font Awesome (ya en el HTML, pero es bueno recordarlo aquí) */
+/* @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css'); */
+
+.rules-content {
+    background: rgba(10, 20, 35, 0.85); /* Fondo más oscuro para el contenido */
+    border: 3px solid var(--color-borde-secundario); /* Borde más grueso */
+    border-radius: 15px;
+    padding: 20px 30px;
+    margin-bottom: 30px;
+    text-align: left;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Sombra para profundidad */
+}
+
+/* Estilo para cada sección de reglas */
+.rules-section {
+    background: rgba(10, 20, 35, 0.7); /* Fondo sutil para cada sección */
+    border: 1px solid var(--color-borde-secundario);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3); /* Sombra interna sutil */
+}
+
+.section-heading {
+    font-family: 'Bangers', cursive;
+    color: var(--color-borde-primario);
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    margin-top: 0; /* Reiniciar margen superior */
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--color-elixir); /* Línea de elixir */
+    padding-bottom: 8px;
+    display: flex; /* Para alinear icono y texto */
+    align-items: center;
+}
+
+.icon-left {
+    margin-right: 15px;
+    font-size: 1.8rem;
+    color: var(--color-elixir); /* Color de elixir para los iconos */
+}
+
+.rules-content p,
+.rules-content li {
+    margin-bottom: 12px; /* Reducir un poco el margen para más densidad */
+    line-height: 1.6;
+    color: var(--color-resaltado);
+    font-size: 1.05rem;
+}
+
+.rules-content ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    list-style-type: none; /* Quitamos los bullet points por defecto */
+    padding-left: 0;
+}
+
+.rules-content ul li {
+    position: relative;
+    padding-left: 30px; /* Espacio para el nuevo bullet point */
+}
+
+.rules-content ul li::before {
+    content: '⚔️'; /* Nuevo bullet point visual */
+    position: absolute;
+    left: 0;
+    color: var(--color-elixir);
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.rules-content ul ul li::before { /* Para sub-listas */
+    content: '🔹';
+    color: var(--color-borde-primario);
+}
+
+.rules-content strong {
+    color: var(--color-borde-primario);
+    font-weight: 700;
+}
+
+/* --- Índice de Navegación Rápida --- */
+.rules-index {
+    background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    border: 2px solid var(--color-elixir);
+    border-radius: 10px;
+    padding: 15px 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 15px rgba(255, 64, 129, 0.4); /* Sombra de elixir */
+}
+
+.index-title {
+    font-family: 'Bangers', cursive;
+    color: var(--color-borde-primario);
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed var(--color-borde-secundario);
+    padding-bottom: 10px;
+}
+
+.rules-index ul {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Para organizar en columnas */
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.rules-index ul li {
+    margin: 8px 15px;
+    font-size: 1.1rem;
+}
+
+.rules-index ul li a {
+    color: var(--color-resaltado);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+}
+
+.rules-index ul li a:hover {
+    color: var(--color-elixir); /* Efecto hover */
+    text-decoration: underline;
+}
+
+.rules-index ul li a .fas, .rules-index ul li a .far {
+    margin-right: 8px;
+    color: var(--color-borde-primario); 
+    font-size: 1.1rem;
+}
+
+/* --- Mejoras para la Tabla de Reglas (Sobrescribe lo anterior) --- */
+.rules-table {
+    background-color: rgba(10, 20, 35, 0.9);
+    border: 2px solid var(--color-borde-primario); 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
+}
+
+.rules-table th {
+    background-color: rgba(0, 0, 0, 0.7); 
+    color: var(--color-borde-primario);
+    font-family: 'Bangers', cursive;
+    font-size: 1.4rem;
+    padding: 15px;
+    border-bottom: 3px solid var(--color-elixir);
+}
+
+.rules-table td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 12px 15px;
+    color: var(--color-resaltado);
+}
+
+.rules-table tr:nth-child(even) { 
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.rules-table em {
+    color: var(--color-elixir); 
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .rules-index ul {
+        flex-direction: column; 
+        align-items: flex-start;
+    }
+    .rules-index ul li {
+        margin: 5px 0;
+    }
+    .rules-table th, .rules-table td {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+    .section-heading {
+        font-size: 1.8rem;
+    }
+    .icon-left {
+        font-size: 1.5rem;
+    }
+    .rules-content ul li::before {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .rules-content {
+        padding: 15px;
+    }
+    .section-heading {
+        font-size: 1.5rem;
+    }
+    .icon-left {
+        font-size: 1.2rem;
+    }
+    .rules-index {
+        padding: 10px;
+    }
+    .rules-index ul li {
+        font-size: 1rem;
+    }
+    .rules-table {
+        font-size: 0.8rem;
+    }
+}
+
+/* --- Mejora 1: Estilo para Botón Cargando --- */
+.boton-epico:disabled {
+    background: var(--color-borde-secundario); 
+    color: #aaa;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.boton-epico .spinner {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border: 4px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: #fff; /* Color del spinner */
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 10px;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* --- Mejora 2: Estilos para Mensajes de Error --- */
+.error-message {
+    display: block;
+    color: #ff6b6b; 
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-top: -10px; 
+    margin-bottom: 15px;
+    padding-left: 5px;
+    height: 1.2rem; 
+    visibility: hidden; 
+    opacity: 0;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.error-message.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+input.was-validated:invalid,
+select.was-validated:invalid {
+    border-color: #ff6b6b; 
+    box-shadow: 0 0 8px rgba(255, 107, 107, 0.4);
+}
+
+.radio-group.was-validated:invalid label,
+.checkbox-group.was-validated:invalid label {
+    color: #ff6b6b; 
+}
+
+#countdown {
+    color: var(--color-elixir);
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+/* --- ================================== --- */
+/* ---   ESTILOS PASO 1  --- */
+/* --- ================================== --- */
+
+/* 1. Héroe Visual: Icono de Corona Grande */
+.welcome-icon {
+    font-size: 4.5rem; /* Tamaño grande */
+    text-align: center;
+    margin-bottom: -15px; 
+    color: var(--color-borde-primario); 
+    text-shadow: 0 0 25px rgba(247, 197, 92, 0.6); 
+    animation: pulse-crown 2s infinite ease-in-out;
+}
+
+/* Animación sutil para la corona */
+@keyframes pulse-crown {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+
+.titulo-principal {
+    font-size: 3rem; 
+}
+
+.subtitulo-principal {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-resaltado); 
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px; 
+}
+
+.requisitos-welcome {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--color-borde-secundario);
+    border-radius: 8px;
+    padding: 20px 25px;
+    text-align: left; 
+}
+
+.requisitos-welcome > strong {
+    font-family: 'Bangers', cursive;
+    color: var(--color-borde-primario);
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.requisitos-welcome ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.requisitos-welcome li {
+    display: flex;
+    align-items: center;
+    font-size: 1.05rem;
+    color: var(--color-texto-primario);
+    margin-bottom: 12px;
+}
+
+.requisitos-welcome li strong {
+    color: var(--color-borde-primario);
+    font-weight: 700;
+}
+
+.icon-check {
+    margin-right: 12px;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+/* 4. Enlaces*/
+.requisitos-welcome a {
+    color: var(--color-borde-primario); 
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px dashed rgba(247, 197, 92, 0.4);
+    transition: all 0.2s ease;
+}
+
+.requisitos-welcome a:hover {
+    color: #fff;
+    background-color: var(--color-borde-primario);
+    border-bottom-color: var(--color-borde-primario);
+    text-shadow: 0 0 5px #000;
+    border-radius: 4px;
+    padding: 2px 4px;
+    margin: -2px 4px;
+}
+
+
+.form-banner {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 25px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border-bottom: 3px solid var(--color-borde-primario);
+}
+
+@media (max-width: 768px) {
+    .form-banner {
+        width: calc(100% + 40px);
+        margin-left: -20px;
+        margin-top: -20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-banner {
+
+        width: calc(100% + 30px);
+        margin-left: -15px;
+        margin-top: -15px;
+        border-radius: 0; 
+    }
+}
+
+/* --- ============================ --- */
+/* --- SECCIÓN 9  --- */
+/* --- ============================ --- */
+
+/* 1. Contenedor de las tarjetas */
+.contact-card-container {
+    display: grid;
+    /* Ajuste para que las tarjetas no se desborden y se adapten mejor */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 20px; /* Espacio entre tarjetas */
+    margin-top: 20px;
+}
+
+/* 2. La tarjeta individual */
+.contact-card {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4); 
+    border: 2px solid var(--color-borde-secundario); 
+    border-radius: 10px;
+    padding: 20px;
+    text-decoration: none;
+    color: var(--color-resaltado);
+    transition: all 0.3s ease-in-out;
+}
+
+.contact-icon {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--color-borde-primario);
+    width: 50px; 
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+/* 4. El texto (título y subtítulo) */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.4;
+    /* Para evitar que el texto se desborde */
+    overflow: hidden;
+}
+.contact-info strong {
+    font-family: 'Bangers', cursive;
+    font-size: 1.4rem;
+    color: var(--color-texto-primario);
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+}
+.contact-info span {
+    font-size: 0.9rem;
+    color: var(--color-resaltado);
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 5. Efectos Hover */
+.contact-card:hover {
+    border-color: var(--color-borde-primario); 
+    background: rgba(10, 20, 35, 0.9);
+    transform: translateY(-5px); 
+    box-shadow: 0 5px 15px rgba(247, 197, 92, 0.3); 
+}
+.contact-card:hover .contact-icon {
+    transform: scale(1.1);
+}
+
+/* 6. Colores específicos para cada icono */
+.contact-card.discord .contact-icon { color: #5865F2; }
+.contact-card.email .contact-icon { color: #c7c7c7; }
+.contact-card.facebook .contact-icon { color: #1877F2; }
+.contact-card.instagram .contact-icon { color: #E1306C; } 
+
+
+@media (max-width: 768px) {
+    .contact-card-container {
+        
+        grid-template-columns: 1fr; 
+        gap: 15px;
+    }
+    .contact-info span {
+        
+        white-space: normal;
+        overflow: visible;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-card {
+        padding: 15px;
+    }
+    .contact-icon {
+        font-size: 2rem;
+        margin-right: 15px;
+        width: 40px;
+    }
+    .contact-info strong {
+        font-size: 1.2rem;
+    }
+}
+
+.form-step[data-step="1"] > .boton-epico {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    flex-grow: 0;     
+}
+
+.next-steps-title {
+    font-family: 'Bangers', cursive;
+    color: var(--color-borde-primario);
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    border-bottom: 2px solid var(--color-borde-secundario);
+    padding-bottom: 10px;
+}
+
+.next-steps-container {
+    margin-bottom: 30px;
+}
+
+
+.step-box {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--color-borde-secundario);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    gap: 15px;
+}
+
+.step-number {
+    font-family: 'Bangers', cursive;
+    font-size: 3rem;
+    color: var(--color-borde-primario);
+    line-height: 1;
+    opacity: 0.7;
+    margin-right: 5px; 
+}
+
+.step-content {
+    flex-grow: 1; 
+    line-height: 1.4;
+}
+.step-content strong {
+    font-size: 1.2rem;
+    color: var(--color-texto-primario);
+}
+.step-content p {
+    font-size: 0.95rem;
+    color: var(--color-resaltado);
+    margin: 0;
+}
+
+.boton-facebook.step-button-mobile {
+    padding: 10px 18px;
+    font-size: 1rem;
+    white-space: nowrap; 
+    margin: 0; 
+}
+.boton-facebook.step-button-mobile i {
+    margin-right: 8px;
+}
+
+
+.step-button-discord {
+    display: inline-block;
+    padding: 10px 18px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #5865F2;
+    border: 2px solid #5865F2;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+}
+.step-button-discord i {
+    margin-right: 8px;
+}
+.step-button-discord:hover {
+    background-color: #4a56d1;
+    transform: scale(1.03);
+}
+
+
+.final-info-box {
+    background: rgba(0, 0, 0, 0.2);
+    border-top: 1px solid var(--color-borde-secundario);
+    padding: 25px 15px 15px 15px;
+    margin: 0 -40px -30px -40px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    text-align: center;
+}
+.redirect-text {
+    font-size: 1.1rem;
+    color: var(--color-resaltado);
+    margin-bottom: 20px;
+}
+.social-links-final {
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+.final-greeting {
+    font-family: 'Bangers', cursive;
+    font-size: 1.5rem;
+    color: var(--color-borde-primario);
+    opacity: 0.8;
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+
+@media (max-width: 600px) {
+    .step-box {
+        flex-direction: column;
+        align-items: stretch; 
+        text-align: center;
+        padding: 15px;
+    }
+    .step-number {
+        font-size: 2.5rem;
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+    .step-content {
+        margin-bottom: 15px;
+    }
+    .step-button-mobile {
+        padding: 12px;
+        font-size: 1.1rem;
+    }
+    .final-info-box {
+        margin: 0 -20px -20px -20px;
+    }
+}
+@media (max-width: 480px) {
+    .final-info-box {
+        margin: 0 -15px -15px -15px;
+        border-radius: 0;
+    }
+}
