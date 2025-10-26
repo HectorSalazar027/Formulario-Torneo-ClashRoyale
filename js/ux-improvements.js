@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtns = document.querySelectorAll('.prev-step-btn');
     const nextBtns = document.querySelectorAll('.next-step-btn');
     const progressBar = document.querySelector('.progress-bar');
+    const progressBarContainer = document.querySelector('.progress-container'); // <-- AÑADE ESTA LÍNEA
     const totalSteps = formSteps.length - 1;
     let currentStep = 0;
 
@@ -17,6 +18,17 @@ document.addEventListener('DOMContentLoaded', () => {
             step.classList.toggle('active', index === stepIndex);
         });
         currentStep = stepIndex;
+
+        // Oculta la barra en el primer paso (index 0), la muestra en los demás.
+        if (progressBarContainer) {
+            if (currentStep === 0) {
+                progressBarContainer.style.display = 'none';
+            } else {
+                progressBarContainer.style.display = 'block';
+            }
+        }
+
+
         if (currentStep > 0 && currentStep < totalSteps) {
             updateProgressBar();
         } else if (currentStep === 0) {
@@ -128,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         seconds--;
                         if (seconds <= 0) {
                             clearInterval(interval);
-                            window.location.href = 'https://discord.gg/Vnphm9s3';
+                            window.location.href = 'https://discord.gg/Vnphm9s3', "_blank";
                         } else {
                             if (countdownElement) {
                                 countdownElement.textContent = seconds;
