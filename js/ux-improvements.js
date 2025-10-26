@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         seconds--;
                         if (seconds <= 0) {
                             clearInterval(interval);
-                            window.location.href = 'https://discord.gg/Vnphm9s3', "_blank";
+                            window.open('https://discord.gg/Vnphm9s3', '_blank');
                         } else {
                             if (countdownElement) {
                                 countdownElement.textContent = seconds;
