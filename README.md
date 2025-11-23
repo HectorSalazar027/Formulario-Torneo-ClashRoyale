@@ -74,15 +74,15 @@ A continuación un diagrama Mermaid que se renderiza en GitHub si el repo lo per
 
 ```mermaid
 flowchart LR
-  Browser[Usuario / Browser] -->|Carga index.html| Frontend[index.html + CSS + JS]
-  Frontend --> Form[Formulario multi-paso]
-  Form --> Validation[Validación cliente (JS)]
-  Validation -->|OK| Submit[Enviar datos]
-  Submit -->|Netlify Forms| Netlify[Netlify Forms]
-  Submit -->|Formspree/API| Backend[Backend externo]
-  Netlify --> Dashboard[Panel Netlify - Forms]
-  Backend --> DB[Base de datos / API]
-  Dashboard --> Admin[Administrador]
+    Browser["Usuario / Browser"] -->|"Carga index.html"| Frontend["index.html + CSS + JS"]
+    Frontend --> Form["Formulario multi-paso"]
+    Form --> Validation["Validación cliente (JS)"]
+    Validation -->|OK| Submit["Enviar datos"]
+    Submit -->|"Netlify Forms"| Netlify["Netlify Forms"]
+    Submit -->|"Formspree/API"| Backend["Backend externo"]
+    Netlify --> Dashboard["Panel Netlify - Forms"]
+    Backend --> DB["Base de datos / API"]
+    Dashboard --> Admin["Administrador"]
 ```
 
 ---
